@@ -17,7 +17,7 @@ public class googleTest {
         given().
                 param("location","52.517779,-1.923983").
                 param("radius","500").
-                param("key", "AIzaSyCI7PVQhgG1ypZnOAUVtSL_ynGrkoLOhcA").
+                param("key", "").
                 when().
                 get("maps/api/place/nearbysearch/json").
                 then()
