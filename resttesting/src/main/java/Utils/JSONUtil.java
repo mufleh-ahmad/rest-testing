@@ -5,9 +5,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
+import io.restassured.path.json.*;
 import java.io.IOException;
 import java.util.function.Supplier;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import static org.hamcrest.Matchers.equalTo;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+
 
 /**
  * Created by Mufleh on 24/03/2019.
@@ -35,5 +43,12 @@ public final class JSONUtil {
     static {
         MAPPER = OBJECT_MAPPER_SUPPLIER.get();
     }
+
+    public static JsonPath rawToJson(Response response){
+        String res = response.asString();
+        JsonPath r = new JsonPath(res);
+        return r;
+    }
+
 
 }
