@@ -9,4 +9,5 @@ public class Constants {
     public static String ADD_RESOURCE = "maps/api/place/add/json";
     public static String DELETE_RESOURCE = "maps/api/place/add/json";
     public static String ADD_LIBRARY_RESOURCE = "Library/Addbook.php";
+    public static String DELETE_LIBRARY_RESOURCE = "Library/DeleteBook.php";
 }

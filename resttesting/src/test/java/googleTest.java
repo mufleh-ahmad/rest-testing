@@ -7,9 +7,6 @@ import static org.hamcrest.Matchers.equalTo;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,6 +17,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 import Utils.Constants;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
