@@ -60,23 +60,23 @@ public class libraryTest {
         }
     }
 
-    @Test
-    public void deleteLibraryBooks() throws IOException, InterruptedException {
-        Thread.sleep(10000);
-        File file = new File(getClass().getClassLoader().getResource("deleteLibrary.json").getFile());
-
-        for (String id : idList) {
-            String testData = updateDeleteBookDynamicField(file,id);
-            RestAssured.baseURI= String.valueOf(properties.get("LIBRARY_HOST"));
-            Response response =  given().
-                    header("Content-Type","application/json").
-                    body(testData).
-                    when().
-                    post(Constants.DELETE_LIBRARY_RESOURCE).
-                    then().assertThat().statusCode(200).
-                    extract().response();
-        }
-    }
+//    @Test
+//    public void deleteLibraryBooks() throws IOException, InterruptedException {
+//        Thread.sleep(10000);
+//        File file = new File(getClass().getClassLoader().getResource("deleteLibrary.json").getFile());
+//
+//        for (String id : idList) {
+//            String testData = updateDeleteBookDynamicField(file,id);
+//            RestAssured.baseURI= String.valueOf(properties.get("LIBRARY_HOST"));
+//            Response response =  given().
+//                    header("Content-Type","application/json").
+//                    body(testData).
+//                    when().
+//                    post(Constants.DELETE_LIBRARY_RESOURCE).
+//                    then().assertThat().statusCode(200).
+//                    extract().response();
+//        }
+//    }
 
     public String updateAddBookDynamicField(File fileName, String isbn, String aisle) throws IOException {
         String uniqueSuffix = RandomStringUtils.randomAlphabetic(5);
