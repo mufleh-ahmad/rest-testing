@@ -5,6 +5,9 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Ignore;
@@ -25,16 +28,19 @@ import static io.restassured.RestAssured.given;
 public class libraryTest {
 
     static Properties properties = new Properties();
+    static Logger log = LogManager.getLogger(libraryTest.class.getName());
     List<String> idList = new ArrayList<>();
 
     @BeforeClass
     public static void setup() throws IOException {
-        FileInputStream fis= new FileInputStream("C:\\Users\\Mufleh\\git\\rest-testing\\resttesting\\src\\test\\resources\\env.properties");
+        FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\env.properties");
         properties.load(fis);
     }
 
     @Test(dataProvider = "BookData")
     public void addLibraryBooks(String isbn, String aisle) throws IOException {
+        log.info("Test starting");
+        log.warn("warning message");
         File file = new File(getClass().getClassLoader().getResource("addLibrary.json").getFile());
         String testData = updateAddBookDynamicField(file,isbn,aisle);
         RestAssured.baseURI= String.valueOf(properties.get("LIBRARY_HOST"));

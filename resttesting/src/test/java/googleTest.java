@@ -31,7 +31,7 @@ public class googleTest {
 
     @BeforeClass
     public static void setup() throws IOException {
-        FileInputStream fis= new FileInputStream("C:\\Users\\Mufleh\\git\\rest-testing\\resttesting\\src\\test\\resources\\env.properties");
+        FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\env.properties");
         properties.load(fis);
 
     }
